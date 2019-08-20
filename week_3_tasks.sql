@@ -14,11 +14,11 @@ EXEC dbo.MULTIPLY @num1 = '4', @num2 = '5';
 
 
 --- Task 2
-DROP FUNCTION IF EXISTS dbo.test1234;
+DROP FUNCTION IF EXISTS dbo.ADD1;
 
 GO
 
-CREATE FUNCTION test1234 (@num1 INT, @num2 INT) RETURNS NVARCHAR(30) AS
+CREATE FUNCTION ADD1 (@num1 INT, @num2 INT) RETURNS NVARCHAR(30) AS
 BEGIN
     Return CONCAT('test ', @num1+@num2);
 END;
@@ -26,7 +26,7 @@ END;
 GO
 
 BEGIN  
-    SELECT dbo.test1234(12,12);
+    SELECT dbo.ADD1(12,12);
 END;
 
 
@@ -64,10 +64,10 @@ INSERT INTO Account(AcctNo,FName,LName,CreditLimit,Balance) VALUES
 
 
 -- Stored Procedure 
-DROP PROCEDURE IF EXISTS dbo.tests;
+DROP PROCEDURE IF EXISTS dbo.Transfers;
 GO
 
-CREATE PROCEDURE tests @a1 INT, @a2 INT, @a3 INT AS
+CREATE PROCEDURE Transfers @a1 INT, @a2 INT, @a3 INT AS
 BEGIN
 
     SELECT @a3 = Amount
@@ -89,7 +89,7 @@ GO
 
 
 -- Procedure Exceution
-EXEC tests @a1 = 2, @a2 = 1, @a3 = 110;
+EXEC Transfers @a1 = 2, @a2 = 1, @a3 = 110;
 
 SELECT *
 FROM LOG;
