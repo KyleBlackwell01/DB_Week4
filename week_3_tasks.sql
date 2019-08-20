@@ -82,7 +82,7 @@ BEGIN
     WHERE AcctNo = @a2;
 
     INSERT INTO LOG(OrigAcct,LogDateTime,RecAcct,Amount) VALUES
-    (@a1,'2018-01-22',@a2,@a3);
+    (@a1,GETDATE(),@a2,@a3);
 
 END;
 GO
